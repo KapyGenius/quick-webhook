@@ -20,9 +20,13 @@ async def webhook(request: Request):
     """
     try:
         print("Request : ", request)
-        
+        print("Request Header : ", request.headers)
+
         data = await request.body()
         print("Data : ", data)
+
+        form = await request.form()
+        print("Form : ", form)
 
         # Parse the incoming JSON payload
         payload = await request.json()
