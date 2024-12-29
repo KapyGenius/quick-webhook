@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the FastAPI application with Uvicorn
-CMD ["fastapi", "run", "main.py"]
+CMD ["fastapi", "dev", "main.py"]
