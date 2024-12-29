@@ -19,17 +19,21 @@ async def webhook(request: Request):
     Receive POST requests and forward the data to Formspark.
     """
     try:
-        print("Request : ", request)
-        print("Request Header : ", request.headers)
 
-        data = await request.body()
-        print("Data : ", data)
+        print("Request Header : ", request.headers)        
+        content_type = request.headers.get("Content-Type", "")
 
-        form = await request.form()
-        print("Form : ", form)
+        if "application/json" in content_type:
+            # Parse JSON payload
+            payload = await request.json()
 
-        # Parse the incoming JSON payload
-        payload = await request.json()
+        elif "application/x-www-form-urlencoded" in content_type:
+            # Parse form data payload
+            form_data = await request.form()
+            payload = dict(form_data)  # Convert to a dictionary
+
+        else:
+            return {"error": "Unsupported Content-Type"}
         
         print("Recieved Payload : \n", payload)
 
