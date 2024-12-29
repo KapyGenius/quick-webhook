@@ -23,6 +23,6 @@ This is a FastAPI-based webhook application that accepts POST requests and forwa
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/kapygenius/quick-webhook.git
+git clone https://github.com/KapyGenius/quick-webhook.git
 cd quick-webhook
 ```
