@@ -19,6 +19,11 @@ async def webhook(request: Request):
     Receive POST requests and forward the data to Formspark.
     """
     try:
+        print("Request : ", request)
+        
+        data = await request.body()
+        print("Data : ", data)
+
         # Parse the incoming JSON payload
         payload = await request.json()
         
